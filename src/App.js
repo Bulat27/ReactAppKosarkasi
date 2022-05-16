@@ -2,10 +2,14 @@
 import './App.css';
 import NavBar from './components/NavBar';
 import Players from './components/Players';
+import { useState } from "react";
+import Team from './components/Team';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
 
-  const players = [
+  const[teamNum, setTeamNum] = useState(0);
+  const [players, setPlayers] = useState([
     {
       id: 1,
       name: "Nikola Jokic",
@@ -27,13 +31,15 @@ function App() {
       "Team: Brooklyn Nets Position: Point Guard",
       chosen: false,
     },
-  ];
+  ]);
 
   const addToTeam = (id) => {
     players.map((player) => {
       if (player.id === id) {
         if(!player.chosen){
           player.chosen = true;
+          const a = teamNum + 1;
+          setTeamNum(a);
         }else{
           alert("This player is already in the team!");
         }
@@ -43,10 +49,21 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <NavBar />
-      <Players players={players} onAdd={addToTeam}/>
-    </div>
+    <BrowserRouter>
+    <NavBar teamNum={teamNum} />
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <Players
+            players={players}
+            onAdd={addToTeam}
+          />
+        }
+      />
+      <Route path="/team" element={<Team/>} />
+    </Routes>
+  </BrowserRouter>
   );
 }
 
