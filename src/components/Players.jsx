@@ -1,16 +1,13 @@
 import React from 'react'
 import OnePlayer from './OnePlayer'
 
-const Players = () => {
-    const name = "New Player Name";
-    const description =	
-        "New player description that we got from Player component using props.";
+const Players = ({ players, onAdd }) => {
 
   return (
     <div className="all-products">
-        <OnePlayer playerName={name} playerDesc = {description}/>
-        <OnePlayer playerName={name} playerDesc = {description}/>
-        <OnePlayer playerName={name} playerDesc = {description}/>
+       {players.map((player) => (
+        <OnePlayer player={player} onAdd={onAdd}/>
+      ))}
     </div>
   )
 }
