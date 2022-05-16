@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
 
   const[teamNum, setTeamNum] = useState(0);
+  const[chosenPlayers, setChosenPlayers] = useState([]);
   const [players, setPlayers] = useState([
     {
       id: 1,
@@ -33,6 +34,12 @@ function App() {
     },
   ]);
 
+  const refreshTeam = () => {
+    const newPlayers = players.filter((player) => player.chosen);
+    setChosenPlayers(newPlayers);
+  };
+
+
   const addToTeam = (id) => {
     players.map((player) => {
       if (player.id === id) {
@@ -40,6 +47,8 @@ function App() {
           player.chosen = true;
           const a = teamNum + 1;
           setTeamNum(a);
+          // refreshTeam();
+          updateTeam(player);
         }else{
           alert("This player is already in the team!");
         }
@@ -47,6 +56,11 @@ function App() {
     });
 
   };
+
+  const updateTeam = (player) => {
+    setChosenPlayers([...chosenPlayers, player]);
+  };	
+
 
   return (
     <BrowserRouter>
@@ -61,7 +75,7 @@ function App() {
           />
         }
       />
-      <Route path="/team" element={<Team/>} />
+      <Route path="/team" element={<Team chosenPlayers={chosenPlayers}/>} />
     </Routes>
   </BrowserRouter>
   );

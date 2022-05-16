@@ -6,7 +6,7 @@ const Players = ({ players, onAdd }) => {
   return (
     <div className="all-products">
        {players.map((player) => (
-        <OnePlayer player={player} onAdd={onAdd}/>
+        <OnePlayer key={player.id} player={player} onAdd={onAdd}/>
       ))}
     </div>
   )
