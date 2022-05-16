@@ -43,18 +43,28 @@ function App() {
   const addToTeam = (id) => {
     players.map((player) => {
       if (player.id === id) {
-        if(!player.chosen){
+        if(teamNum < 5){
           player.chosen = true;
           const a = teamNum + 1;
           setTeamNum(a);
           // refreshTeam();
           updateTeam(player);
         }else{
-          alert("This player is already in the team!");
+          alert("Your team is already full!");
         }
       }
     });
+  };
 
+  const removeFromTeam = (id) => {
+    players.map((player) => {
+      if (player.id === id) {
+        player.chosen=false;
+        const a = teamNum - 1;
+        setTeamNum(a);
+        refreshTeam();
+      }
+    });
   };
 
   const updateTeam = (player) => {
@@ -72,10 +82,11 @@ function App() {
           <Players
             players={players}
             onAdd={addToTeam}
+            onRemove={removeFromTeam}
           />
         }
       />
-      <Route path="/team" element={<Team chosenPlayers={chosenPlayers}/>} />
+      <Route path="/team" element={<Team chosenPlayers={chosenPlayers} onRemove={removeFromTeam}/>} />
     </Routes>
   </BrowserRouter>
   );

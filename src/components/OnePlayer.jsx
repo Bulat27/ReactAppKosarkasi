@@ -1,7 +1,7 @@
 import React from 'react'
 import { ImPlus, ImMinus } from "react-icons/im";
 
-const OnePlayer = ({ player, onAdd }) => {
+const OnePlayer = ({ player, onAdd, onRemove }) => {
   
   return (
     <div className="card">
@@ -11,13 +11,21 @@ const OnePlayer = ({ player, onAdd }) => {
         <p className="card-text">
             {player.description}
         </p>
-        <button className="btn" onClick={() => onAdd(player.id)}>
+        {/* <button className="btn" onClick={() => onAdd(player.id)}>
           <ImPlus />
         </button>
         <button className="btn">
           <ImMinus />
-        </button>
-
+        </button> */}
+      {player.chosen ? (
+        <button className="btn" onClick={() => onRemove(player.id)}>
+        <ImMinus />
+      </button>
+      ):
+      <button className="btn" onClick={() => onAdd(player.id)}>
+        <ImPlus />
+      </button>
+      }
       </div>
     </div>
 
