@@ -5,7 +5,7 @@ const OnePlayer = ({ player, onAdd, onRemove }) => {
   
   return (
     <div className="card">
-      <img className="card-img-top" src="https://picsum.photos/200" alt="Neka slika"/>
+      <img className="card-img-top" src={player.image} alt="Neka slika"/>
       <div className="card-body">
         <h3 className="card-title">{player.name}</h3>
         <p className="card-text">

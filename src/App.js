@@ -17,6 +17,7 @@ function App() {
       description:
         "Team: Denver Nuggets Position: Center",
       chosen: false,
+      image: "../assets/jokic.jpg"
     },
     {
       id: 2,
@@ -24,6 +25,7 @@ function App() {
       description:
         "Team: Brooklyn Nets Position: Small Forward",
       chosen: false,
+      image: "../assets/durant.jpg"
     },
     {
       id: 3,
@@ -31,6 +33,39 @@ function App() {
       description:
       "Team: Brooklyn Nets Position: Point Guard",
       chosen: false,
+      image: "../assets/kyrie.jpg"
+    },
+    {
+      id: 4,
+      name: "Jrue Holiday",
+      description:
+      "Team: Milwaukee Bucks Position: Point Guard",
+      chosen: false,
+      image: "../assets/jrue.jpg"
+    },
+    {
+      id: 5,
+      name: "Bogdan Bogdanovic",
+      description:
+      "Team: Atlanta Hawks Position: Shooting Guard",
+      chosen: false,
+      image: "../assets/bogdan.jpg"
+    },
+    {
+      id: 6,
+      name: "Boban Marjanovic",
+      description:
+      "Team: Dallas Mavericks Position: Center",
+      chosen: false,
+      image: "../assets/boban.jpg"
+    },
+    {
+      id: 7,
+      name: "Kelly Oubre Jr.",
+      description:
+      "Team: Charlotte Hornets Position: Small Forward",
+      chosen: false,
+      image: "../assets/kelly.jpg"
     },
   ]);
 
